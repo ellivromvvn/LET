@@ -1,10 +1,4 @@
-ent_let_percentile_data$LET_Results[]
-
-
 # BAR PLOTS
-
-plot(Entrance_LET_Data$LET_Results,Entrance_LET_Data$Vocabulary,col="red",varwidth=F,
-     horizontal=F,xlab="Result",ylab="Vocabulary")
 
 plot(ent_let_percentile_data$LET_Results,ent_let_percentile_data$Vocabulary,col="red",varwidth=F,
      horizontal=F,xlab="Result",ylab="Vocabulary")
@@ -18,4 +12,11 @@ plot(ent_let_percentile_data$LET_Results,ent_let_percentile_data$Numerical_Abili
 plot(ent_let_percentile_data$LET_Results,ent_let_percentile_data$Nonverbal_Ability,col="red",varwidth=F,
      horizontal=F,xlab="Result",ylab="Non-Verbal Ability")
 
-plot(ent_let_percentile_data$LET_Results,ent_let_percentile_data$Vocabulary)
+#logit regression 
+
+glm.fit<-glm(LET_Results~Vocabulary+Nonverbal_Ability,data=ent_let_percentile_data,
+             family = binomial)
+glm.fit2<-glm(LET_Results~Vocabulary+Nonverbal_Ability+Analogy+Numerical_Ability,data=ent_let_percentile_data,
+              family = binomial)
+glm.fit3<-glm(LET_Results~Vocabulary+Nonverbal_Ability+Analogy,data=ent_let_percentile_data,
+              family = binomial)
