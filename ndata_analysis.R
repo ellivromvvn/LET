@@ -26,7 +26,7 @@ glm.fit4<-glm(LET_Results~Nonverbal_Ability,data=ent_let_percentile_data,
 summary(glm.fit4)
 coef(glm.fit3)
 
-glm.probs<-predict(glm.fit2,type="response")
+glm.probs<-predict(glm.fit4,type="response")
 glm.probs
 
 plot(glm.probs)
@@ -40,16 +40,16 @@ mean(glm.pred==ent_let_percentile_data$LET_Results)
 
 #predicting with new data
 
-Vocabulary<-39
+Vocabulary<-75
 Analogy<-32
-Numerical_Ability<-70
+Numerical_Ability<-87
 Nonverbal_Ability<-50
 a<-data.frame(Vocabulary,Analogy,Numerical_Ability,Nonverbal_Ability)
 
-predict(glm.fit2,newdata = a, type = "response")
+predict(glm.fit4,newdata = a, type = "response")
 
-Vocabulary<-39
-Numerical_Ability<-70
+Vocabulary<-51
+Numerical_Ability<-43
 Nonverbal_Ability<-50
 b<-data.frame(Vocabulary,Numerical_Ability,Nonverbal_Ability)
 
